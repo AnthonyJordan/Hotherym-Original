@@ -486,4 +486,11 @@ hr {
 #galleryImage {
   max-height: 100%;
   object-fit: contain;
+  background-color: black;
+  padding: 29px;
+  border-image-slice: 114 105 105 111 fill;
+  border-image-width: 30px 30px 30px 30px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch;
+  border-image-source: url("/images/GradientFrame.png");
 }
