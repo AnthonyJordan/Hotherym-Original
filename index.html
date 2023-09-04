@@ -1,0 +1,122 @@
+<html>
+<head>
+<META name="DESCRIPTION" content="The Art and Life of Orbyss, AKA Hotherym.  Home of the Drii and Volucris (Mothman).">
+<META name="KEYWORDS" content="orbyss, orbyss.net, hotherym, hotherym.net, volucris, dimorphentomopterus, drii, callidicaesius, mothman, aliens, aboriginal, extraterrestrial, xenoterrestrial, paleoart, paleontography, paleontology, dinosaurs, neolmas, ufo, idm, iem">
+
+<LINK REL="SHORTCUT ICON" HREF="http://hotherym.net/favicon.ico" type="image/x-icon" />
+<LINK REL="ICON" HREF="http://hotherym.net/favicon.ico" type="image/x-icon" />
+
+<title>Welcome to Hotherym.net!</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script language="javascript">
+
+function ieDisp(obj, viz) 
+{
+var punk = navigator.userAgent.toLowerCase();
+  if (punk.indexOf('opera') + 1)
+    {}
+  else if (punk.indexOf('msie') + 1) //(navigator.appName.indexOf("Microsoft")!=-1)
+  {
+    document.getElementById(obj).style.visibility = viz;
+  } 
+    
+}
+
+
+var ie=document.all;
+var nn6=document.getElementById&&!document.all;
+
+var isdrag=false;
+var x,y;
+var dobj;
+
+function movemouse(e)
+{
+  if (isdrag)
+  {
+    dobj.style.left = nn6 ? tx + e.clientX - x : tx + event.clientX - x;
+    dobj.style.top  = nn6 ? ty + e.clientY - y : ty + event.clientY - y;
+    return false;
+  }
+}
+
+function selectmouse(e) 
+{
+  var fobj       = nn6 ? e.target : event.srcElement;
+  var topelement = nn6 ? "HTML" : "BODY";
+
+  while (fobj.tagName != topelement && fobj.className != "dragme")
+  {
+    fobj = nn6 ? fobj.parentNode : fobj.parentElement;
+  }
+
+  if (fobj.className=="dragme")
+  {
+    isdrag = true;
+    dobj = fobj;
+    tx = parseInt(dobj.style.left+0);
+    ty = parseInt(dobj.style.top+0);
+    x = nn6 ? e.clientX : event.clientX;
+    y = nn6 ? e.clientY : event.clientY;
+    document.onmousemove=movemouse;
+    return false;
+  }
+}
+
+document.onmousedown=selectmouse;
+document.onmouseup=new Function("isdrag=false");
+
+
+Chicken = new Image; Chicken.src = "images/volucris-hoth-anim.gif";
+
+function Turkey(Gizzard) {if (Gizzard=="Giblets") {document.Giblets.src = Chicken.src;} }
+
+</script>
+
+
+
+</head>
+
+<body "window.defaultStatus='Welcome to Hotherym.net'"; id="Hotherym.net">
+<!-- onload="ieDisp('ie-box', 'visible')"    REMOVED FROM BODY TAG -->
+
+<div id=container></div>
+<a href=main.html><div id=hotherym><img src="images/talkbox.png" width="292" height="132" style="filter: alpha(opacity=85); -moz-opacity: .85; opacity: .85;"
+></div></a>
+<a href="gallery.html"><div id=galleries><img src="images/galleriestalk.png" width="292" height="132" style="filter: alpha(opacity=85); -moz-opacity: .85; opacity: .85;"
+></div></a>
+<div id=mimi-drii><div id=crab></div></div>
+<div id=prawn-1><img src="images/prawn-1.gif" class="dragme"></div>
+<div id=prawn-2><img src="images/prawn-2.gif" class="dragme"></div>
+
+<div id=volucris-face></div><div id=volucris-eye></div>
+<div id=volucris><a href="http://volucris.hotherym.net" onmouseOver="Turkey('Giblets')"><img src="images/volucris-hoth.gif" name="Giblets"></a></div>
+
+<!--
+
+<div class=dragme id=ie-box>
+<img src="images/x.gif" align="right" float="left" onClick="ieDisp('ie-box', 'hidden')">
+<b>WARNING:</b> Your browser has been detected as Internet Explorer(IE).  <br>IE is widely recognized as the worst browser you could be using and your very security is compromised by doing so.  Hotherym.net will look just terrible to IE 6 and less, and users of all versions will be missing out on many visual effects here. We highly recommend using one of these browsers instead:<br>
+<hr>
+
+<table align="center" width="475px">
+  <tr>
+    <td colspan=2 align="center"> For PC </td><td></td><td colspan=2 align="center"> For Mac </td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://www.getfirefox.com" target="_new"><img src="images/firefox-logo.gif"><br>Firefox</a></td>
+    <td align="center"><a href="http://www.opera.com" target="_new"><img src="images/opera-logo.gif"><br>Opera</a></td>
+    <td rowspan=2 valign="middle"><img src="images/bar.gif"></td>
+    <td align="center"><img src="images/safari-logo.gif"><br>Safari</td>
+    <td align="center"><a href="http://www.caminobrowser.org" target="_new"><img src="images/camino-logo.gif"><br>Camino</a></td>
+  </tr>
+</table>
+
+</div>
+
+-->
+
+</body>
+</html>

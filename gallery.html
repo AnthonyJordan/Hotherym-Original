@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>-:Hotherym.net:- The Gallery</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body class="galleryBody">
+    <div id=hotherym2><a href="main.html"><img src="images/hotherym-small.png" height="59" width="273"></a></div>
+    <div id="galleryContainer"><a></a></div>
+
+    <div id=footer>
+      <a name="fb_share" type="button" share_url="http://www.hotherym.net/"></a>
+      <!--<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></!-->
+      
+      &nbsp;&nbsp;&nbsp;
+      Hotherym.net � 2007-2023 to Eorhythm.  Web design (mostly) by <a href="/neolmas/">Neolmas<a></div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript">
+    //Grab images from folder
+    var folder = "bilder/gallery/";
+
+    $.ajax({
+      url: folder,
+      success: function (data) {
+        console.log(data);
+        $(data)
+          .find("a")
+          .attr("href", function (i, val) {
+            if (val.match(/\.(jpe?g|png|gif)$/)) {
+              $(document.getElementById("galleryContainer")).append(
+                "<div id=galleryImageDiv><img src='" +
+                  val +
+                  "'  id=galleryImage></div>"
+              );
+            }
+          });
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+
+    //Make mouse scroll left and right
+    var item = document.getElementById("galleryContainer");
+
+    window.addEventListener("wheel", function (e) {
+      if (e.deltaY > 0) item.scrollLeft += 200;
+      else item.scrollLeft -= 200;
+    });
+  </script>
+</html>
