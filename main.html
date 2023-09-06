@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
 
-<html>
+<html id="HTML">
 <head>
 <title>-:Hotherym.net:- The Art and Life of Eorhythm</title>
 
@@ -112,4 +112,12 @@ Hotherym.net � 2007-2023 to Eorhythm.  Web design by <a href="/neolmas/">Neolm
 
 <!-- <div id=drii-back><img src="images/drii-back.png" height="442" width="452"></div>  -->
 </body>
+<script>
+	var item = document.getElementById("HTML");
+
+window.addEventListener("wheel", function (e) {
+  if (e.deltaY > 0) item.scrollLeft += 200;
+  else item.scrollLeft -= 200;
+});
+</script>
 </html>

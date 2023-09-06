@@ -414,7 +414,7 @@ hr {
   top: 75px;
   height: auto;
 
-  background: url("images/boxbg.jpg") repeat-y fixed top center;
+  background: url("images/boxbg.jpg") repeat-y scroll top center;
 
   overflow: auto;
 

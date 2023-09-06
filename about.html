@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
 
-<html>
+<html id="HTML">
 <head>
 <title>-:Hotherym.net:- About Eorhythm</title>
 
@@ -104,6 +104,14 @@ Everything you've read here has been a transient metacognisant quasipsychotic ep
 <div id=drii-back><img src="images/drii-back.png" height="435" width="452"></div>
 
 </body>
+<script>
+	var item = document.getElementById("HTML");
+
+window.addEventListener("wheel", function (e) {
+  if (e.deltaY > 0) item.scrollLeft += 200;
+  else item.scrollLeft -= 200;
+});
+</script>
 </html>
 
 
