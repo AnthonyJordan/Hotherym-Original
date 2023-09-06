@@ -310,7 +310,7 @@ hr {
   max-height: 685px; /* 385px; */
   height: auto;
 
-  background: url("images/boxbg.jpg") repeat-y fixed top center;
+  background: url("images/boxbg.jpg") repeat-y scroll top center;
 
   overflow: auto;
 
