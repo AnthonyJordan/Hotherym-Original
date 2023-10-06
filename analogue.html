@@ -240,13 +240,8 @@
   ></script>
   <script type="text/javascript">
     //Grab images from folder
-    var folders = ["albums/arts/collaboration/","albums/arts/scraps/digital/","albums/arts/scraps/kid/","albums/arts/scraps/traditional/", "albums/arts/showcase/analogue/",
-    "albums/arts/showcase/digital/","albums/photography/animalia/arthropoda/arachnida/","albums/photography/animalia/arthropoda/insecta/","albums/photography/animalia/arthropoda/miscellarthropoda/",
-    "albums/photography/animalia/aves/","albums/photography/animalia/mammalia/","albums/photography/animalia/miscellanimalia/","albums/photography/animalia/reptilia/",
-    "albums/photography/inanimalia/architecture/","albums/photography/inanimalia/objecta/","albums/photography/inanimalia/vista/","albums/sculpt/"];
-    folders.forEach(folder => {
-        
-    
+    var folder = "albums/arts/showcase/analogue/";
+
     $.ajax({
       url: folder,
       success: function (data) {
@@ -266,7 +261,6 @@
         console.log(error);
       },
     });
-});
 
     //Make mouse scroll left and right
     var item = document.getElementById("galleryContainer");

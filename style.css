@@ -572,18 +572,18 @@ hr {
   position: absolute;
 }
 .home-link03 {
-  top: 168px;
-  left: 198px;
+  top: 174px;
+  left: 176px;
   position: absolute;
 }
 .home-link04 {
-  top: 180px;
-  left: 270px;
+  top: 204px;
+  left: 238px;
   position: absolute;
 }
 .home-link05 {
-  top: 175px;
-  left: 104px;
+  top: 178px;
+  left: 86px;
   position: absolute;
 }
 .home-link06 {
@@ -602,8 +602,8 @@ hr {
   position: absolute;
 }
 .home-link09 {
-  top: 139px;
-  left: 418px;
+  top: 167px;
+  left: 415px;
   position: absolute;
 }
 .home-link10 {
@@ -622,18 +622,18 @@ hr {
   position: absolute;
 }
 .home-link13 {
-  top: 243px;
-  left: 518px;
+  top: 237px;
+  left: 571px;
   position: absolute;
 }
 .home-link14 {
   top: 230px;
-  left: 321px;
+  left: 349px;
   position: absolute;
 }
 .home-link15 {
-  top: 226px;
-  left: 438px;
+  top: 234px;
+  left: 452px;
   position: absolute;
 }
 .home-link16 {
@@ -664,5 +664,15 @@ hr {
 .home-link21 {
   top: 18px;
   right: 23px;
+  position: absolute;
+}
+.home-link22 {
+  top: 140px;
+  left: 335px;
+  position: absolute;
+}
+.home-link23 {
+  top: 136px;
+  left: 245px;
   position: absolute;
 }
