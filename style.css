@@ -494,3 +494,175 @@ hr {
   border-image-repeat: stretch;
   border-image-source: url("/images/GradientFrame.png");
 }
+
+#navbar {
+  position: fixed;
+  top: 10px;
+  left: 1200px;
+  height: 59px;
+  width: 295px;
+
+  z-index: 1;
+}
+
+#hotherym3 {
+  position: fixed;
+  top: 10px;
+  left: 400px;
+  height: 59px;
+  width: 295px;
+
+  z-index: 1;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 10%;
+  background-color: #993c82;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: fit-content;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #db81ab;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 30vh;
+  min-width: 130vh;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-link {
+  top: 19px;
+  left: 183px;
+  position: absolute;
+}
+.home-link01 {
+  top: 93px;
+  left: 174px;
+  position: absolute;
+}
+.home-link02 {
+  top: 87px;
+  left: 274px;
+  position: absolute;
+}
+.home-link03 {
+  top: 168px;
+  left: 198px;
+  position: absolute;
+}
+.home-link04 {
+  top: 180px;
+  left: 270px;
+  position: absolute;
+}
+.home-link05 {
+  top: 175px;
+  left: 104px;
+  position: absolute;
+}
+.home-link06 {
+  top: 98px;
+  left: 16px;
+  position: absolute;
+}
+.home-link07 {
+  top: 15px;
+  left: 718px;
+  position: absolute;
+}
+.home-link08 {
+  top: 79px;
+  left: 550px;
+  position: absolute;
+}
+.home-link09 {
+  top: 139px;
+  left: 418px;
+  position: absolute;
+}
+.home-link10 {
+  top: 94px;
+  left: 700px;
+  position: absolute;
+}
+.home-link11 {
+  top: 164px;
+  left: 548px;
+  position: absolute;
+}
+.home-link12 {
+  top: 172px;
+  left: 630px;
+  position: absolute;
+}
+.home-link13 {
+  top: 243px;
+  left: 518px;
+  position: absolute;
+}
+.home-link14 {
+  top: 230px;
+  left: 321px;
+  position: absolute;
+}
+.home-link15 {
+  top: 226px;
+  left: 438px;
+  position: absolute;
+}
+.home-link16 {
+  top: 134px;
+  left: 664px;
+  position: absolute;
+}
+.home-link17 {
+  top: 61px;
+  left: 871px;
+  position: absolute;
+}
+.home-link18 {
+  top: 114px;
+  left: 797px;
+  position: absolute;
+}
+.home-link19 {
+  top: 106px;
+  right: 167px;
+  position: absolute;
+}
+.home-link20 {
+  top: 144px;
+  left: 913px;
+  position: absolute;
+}
+.home-link21 {
+  top: 18px;
+  right: 23px;
+  position: absolute;
+}
