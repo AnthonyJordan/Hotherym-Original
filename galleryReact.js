@@ -29,39 +29,46 @@ function GalleryReact() {
 
   const [images, setImages] = React.useState({});
   React.useEffect(() => {
+    var promiseArr = [];
+
     folders.forEach((folder) => {
       var imageName = "";
       images[folder] = new Array();
-
-      $.ajax({
-        url: folder,
-        success: function (data) {
-          $(data)
-            .find("a")
-            .attr("href", function (i, val) {
-              if (val.match(/\.(jpe?g|png|gif)$/)) {
-                (imageName = val.split("/")),
-                  (imageName = imageName.pop().split("."));
-                (imageName = imageName[0]),
-                  images[folder].push(
-                    React.createElement(
-                      "div",
-                      { id: "galleryImageDiv" },
-                      React.createElement("img", {
-                        id: "galleryImage",
-                        src: val,
-                      })
-                    )
-                  );
-              }
-            });
-        },
-        error: function (error) {
-          console.log(error);
-        },
+      var promise = new Promise(function (resolve, reject) {
+        $.ajax({
+          url: folder,
+          success: function (data) {
+            $(data)
+              .find("a")
+              .attr("href", function (i, val) {
+                if (val.match(/\.(jpe?g|png|gif)$/)) {
+                  (imageName = val.split("/")),
+                    (imageName = imageName.pop().split("."));
+                  (imageName = imageName[0]),
+                    images[folder].push(
+                      React.createElement(
+                        "div",
+                        { id: "galleryImageDiv" },
+                        React.createElement("img", {
+                          id: "galleryImage",
+                          src: val,
+                        })
+                      )
+                    );
+                }
+              });
+            resolve();
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
       });
+      promiseArr.push(promise);
     });
-    setTimeout(() => setSelection("all"), 1000);
+    Promise.all(promiseArr).then(() => {
+      setSelection("all");
+    });
   }, []);
 
   function getCorrectImages(selection) {
@@ -192,12 +199,12 @@ function GalleryReact() {
   }
 
   //Make mouse scroll left and right
-  // const item = document.getElementById("galleryContainer");
+  const item = document.getElementById("galleryContainer");
 
-  // window.addEventListener("wheel", function (e) {
-  //   if (e.deltaY > 0) item.scrollLeft += 200;
-  //   else item.scrollLeft -= 200;
-  // });
+  window.addEventListener("wheel", function (e) {
+    if (e.deltaY > 0) item.scrollLeft += 200;
+    else item.scrollLeft -= 200;
+  });
 
   return React.createElement(
     React.Fragment,
