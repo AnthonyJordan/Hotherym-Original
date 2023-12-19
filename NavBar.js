@@ -2,231 +2,239 @@
 
 const e = React.createElement;
 
-class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return React.createElement(React.Fragment, null, "hi");
-  }
-
-  //   <div id="navbar" class="dropdown">
-  //     <p class="dropbtn">The Navigator</p>{" "}
-  //     <div class="dropdown-content">
-  //       <div class="home-container">
-  //         <a
-  //           href="art.html"
-  //           id="Art"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link"
-  //         >
-  //           Art
-  //         </a>
-  //         <a
-  //           href="scraps.html"
-  //           id="Scraps"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link01"
-  //         >
-  //           Scraps
-  //         </a>
-  //         <a
-  //           href="showcase.html"
-  //           id="Showcase"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link02"
-  //         >
-  //           Showcase
-  //         </a>
-  //         <a
-  //           href="kid.html"
-  //           id="Kid"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link03"
-  //         >
-  //           Kid
-  //         </a>
-  //         <a
-  //           href="traditional.html"
-  //           id="Traditional"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link04"
-  //         >
-  //           Traditional
-  //         </a>
-  //         <a
-  //           href="digital.html"
-  //           id="Digital"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link05"
-  //         >
-  //           Digital
-  //         </a>
-  //         <a
-  //           href="collaboration.html"
-  //           id="Collaboration"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link06"
-  //         >
-  //           Collaboration
-  //         </a>
-  //         <a
-  //           href="photography.html"
-  //           id="Photography"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link07"
-  //         >
-  //           Photography
-  //         </a>
-  //         <a
-  //           href="animalia.html"
-  //           id="Animalia"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link08"
-  //         >
-  //           Animalia
-  //         </a>
-  //         <a
-  //           href="anthropoda.html"
-  //           id="Anthropoda"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link09"
-  //         >
-  //           Anthropoda
-  //         </a>
-  //         <a
-  //           href="reptilia.html"
-  //           id="Reptilia"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link10"
-  //         >
-  //           Reptilia
-  //         </a>
-  //         <a
-  //           href="aves.html"
-  //           id="Aves"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link11"
-  //         >
-  //           Aves
-  //         </a>
-  //         <a
-  //           href="mammalia.html"
-  //           id="Mammalia"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link12"
-  //         >
-  //           Mammalia
-  //         </a>
-  //         <a
-  //           href="miscellarthropoda.html"
-  //           id="Miscellantropoda"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link13"
-  //         >
-  //           Miscellarthropoda
-  //         </a>
-  //         <a
-  //           href="arachnida.html"
-  //           id="Arachnida"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link14"
-  //         >
-  //           Arachnida
-  //         </a>
-  //         <a
-  //           href="insecta.html"
-  //           id="Insecta"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link15"
-  //         >
-  //           Insecta
-  //         </a>
-  //         <a
-  //           href="miscellanimalia.html"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link16"
-  //         >
-  //           Miscellanimalia
-  //         </a>
-  //         <a
-  //           href="inanimalia.html"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link17"
-  //         >
-  //           Inanimalia
-  //         </a>
-  //         <a
-  //           href="architecture.html"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link18"
-  //         >
-  //           Architecture
-  //         </a>
-  //         <a
-  //           href="vista.html"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link19"
-  //         >
-  //           Vista
-  //         </a>
-  //         <a
-  //           href="objecta.html"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link20"
-  //         >
-  //           Objecta
-  //         </a>
-  //         <a
-  //           href="sculptures.html"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link21"
-  //         >
-  //           Sculptures
-  //         </a>
-  //         <a
-  //           href="digital.html"
-  //           id="Digital"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link22"
-  //         >
-  //           Digital
-  //         </a>
-  //         <a
-  //           href="analogue.html"
-  //           id="Analogue"
-  //           target="_parent"
-  //           rel="noreferrer"
-  //           class="home-link23"
-  //         >
-  //           Analogue
-  //         </a>
-  //       </div>
-  //     </div>
-  //   </div>
+function NavBar({ setSelection }) {
+  return React.createElement(
+    React.Fragment,
+    null,
+    React.createElement(
+      "div",
+      { id: "navbar", className: "dropdown" },
+      React.createElement("p", { className: "dropbtn" }, "The Navigator"),
+      React.createElement(
+        "div",
+        { className: "dropdown-content" },
+        React.createElement(
+          "div",
+          { className: "home-container" },
+          React.createElement(
+            "p",
+            {
+              className: "home-link",
+              id: "Art",
+              onClick: () => setSelection("art"),
+            },
+            "Art"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link01",
+              id: "Scraps",
+              onClick: () => setSelection("scraps"),
+            },
+            "Scraps"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link02",
+              id: "Showcase",
+              onClick: () => setSelection("showcase"),
+            },
+            "Showcase"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link03",
+              id: "Kid",
+              onClick: () => setSelection("kid"),
+            },
+            "Kid"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link04",
+              id: "Traditional",
+              onClick: () => setSelection("traditional"),
+            },
+            "Traditional"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link05",
+              id: "DigitalScraps",
+              onClick: () => setSelection("digitalScraps"),
+            },
+            "Digital"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link06",
+              id: "Collaboration",
+              onClick: () => setSelection("collaboration"),
+            },
+            "Collaboration"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link07",
+              id: "Photography",
+              onClick: () => setSelection("photography"),
+            },
+            "Photography"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link08",
+              id: "Animalia",
+              onClick: () => setSelection("animalia"),
+            },
+            "Animalia"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link09",
+              id: "Arthropoda",
+              onClick: () => setSelection("arthropoda"),
+            },
+            "Arthropoda"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link10",
+              id: "Reptilia",
+              onClick: () => setSelection("reptilia"),
+            },
+            "Reptilia"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link11",
+              id: "Aves",
+              onClick: () => setSelection("aves"),
+            },
+            "Aves"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link12",
+              id: "Mammmalia",
+              onClick: () => setSelection("mammalia"),
+            },
+            "Mammalia"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link13",
+              id: "Miscellarthropoda",
+              onClick: () => setSelection("miscellarthropoda"),
+            },
+            "Miscellarthropoda"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link14",
+              id: "Arachnida",
+              onClick: () => setSelection("arachnida"),
+            },
+            "Arachnida"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link15",
+              id: "Insecta",
+              onClick: () => setSelection("insecta"),
+            },
+            "Insecta"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link16",
+              id: "Miscellanimalia",
+              onClick: () => setSelection("miscellanimalia"),
+            },
+            "Miscellanimalia"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link17",
+              id: "Inanimalia",
+              onClick: () => setSelection("inanimalia"),
+            },
+            "Inanimalia"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link18",
+              id: "Architecture",
+              onClick: () => setSelection("architecture"),
+            },
+            "Architecture"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link19",
+              id: "Vista",
+              onClick: () => setSelection("vista"),
+            },
+            "Vista"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link20",
+              id: "Objecta",
+              onClick: () => setSelection("objecta"),
+            },
+            "Objecta"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link21",
+              id: "Sculptures",
+              onClick: () => setSelection("sculptures"),
+            },
+            "Sculptures"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link22",
+              id: "DigitalShowcase",
+              onClick: () => setSelection("digitalShowcase"),
+            },
+            "Digital"
+          ),
+          React.createElement(
+            "p",
+            {
+              className: "home-link23",
+              id: "Analogue",
+              onClick: () => setSelection("analogue"),
+            },
+            "Analogue"
+          )
+        )
+      )
+    )
+  );
 }
 export default NavBar;

@@ -1,4 +1,4 @@
-//import Footer from "./Footer.js";
+import Footer from "./Footer.js";
 import descriptionConfig from "./description-config.json" assert { type: "json" };
 import NavBar from "./NavBar.js";
 ("use strict");
@@ -6,58 +6,193 @@ import NavBar from "./NavBar.js";
 const e = React.createElement;
 
 function GalleryReact() {
+  const [selection, setSelection] = React.useState("");
   const folders = [
-    "albums/arts/collaboration/", // 0
-    "albums/arts/scraps/digital/", // 1
-    "albums/arts/scraps/kid/", // 2
-    "albums/arts/scraps/traditional/", // 3
-    "albums/arts/showcase/analogue/", // 4
-    "albums/arts/showcase/digital/", // 5
-    "albums/photography/animalia/arthropoda/arachnida/", // 6
-    "albums/photography/animalia/arthropoda/insecta/", // 7
-    "albums/photography/animalia/arthropoda/miscellarthropoda/", // 8
-    "albums/photography/animalia/aves/", // 9
-    "albums/photography/animalia/mammalia/", //10
-    "albums/photography/animalia/miscellanimalia/", //11
-    "albums/photography/animalia/reptilia/", // 12
-    "albums/photography/inanimalia/architecture/", // 13
-    "albums/photography/inanimalia/objecta/", // 14
-    "albums/photography/inanimalia/vista/", // 15
-    "albums/sculpt/", // 16
+    "albums/arts/collaboration/",
+    "albums/arts/scraps/digital/",
+    "albums/arts/scraps/kid/",
+    "albums/arts/scraps/traditional/",
+    "albums/arts/showcase/analogue/",
+    "albums/arts/showcase/digital/",
+    "albums/photography/animalia/arthropoda/arachnida/",
+    "albums/photography/animalia/arthropoda/insecta/",
+    "albums/photography/animalia/arthropoda/miscellarthropoda/",
+    "albums/photography/animalia/aves/",
+    "albums/photography/animalia/mammalia/",
+    "albums/photography/animalia/miscellanimalia/",
+    "albums/photography/animalia/reptilia/",
+    "albums/photography/inanimalia/architecture/",
+    "albums/photography/inanimalia/objecta/",
+    "albums/photography/inanimalia/vista/",
+    "albums/sculpt/",
   ];
 
-  const images = {};
+  const [images, setImages] = React.useState({});
+  React.useEffect(() => {
+    folders.forEach((folder) => {
+      var imageName = "";
+      images[folder] = new Array();
 
-  folders.forEach((folder) => {
-    var imageName = "";
-    images[folder] = new Array();
-
-    $.ajax({
-      url: folder,
-      success: function (data) {
-        $(data)
-          .find("a")
-          .attr("href", function (i, val) {
-            if (val.match(/\.(jpe?g|png|gif)$/)) {
-              (imageName = val.split("/")),
-                (imageName = imageName.pop().split("."));
-              (imageName = imageName[0]),
-                images[folder].push(
-                  "<div id=galleryImageDiv><img src='" +
-                    val +
-                    "'  id=galleryImage></div>"
-                );
-            }
-          });
-      },
-      error: function (error) {
-        console.log(error);
-      },
+      $.ajax({
+        url: folder,
+        success: function (data) {
+          $(data)
+            .find("a")
+            .attr("href", function (i, val) {
+              if (val.match(/\.(jpe?g|png|gif)$/)) {
+                (imageName = val.split("/")),
+                  (imageName = imageName.pop().split("."));
+                (imageName = imageName[0]),
+                  images[folder].push(
+                    React.createElement(
+                      "div",
+                      { id: "galleryImageDiv" },
+                      React.createElement("img", {
+                        id: "galleryImage",
+                        src: val,
+                      })
+                    )
+                  );
+              }
+            });
+        },
+        error: function (error) {
+          console.log(error);
+        },
+      });
     });
-  });
+    setTimeout(() => setSelection("all"), 1000);
+  }, []);
+
+  function getCorrectImages(selection) {
+    let returnArray = [];
+    switch (selection) {
+      case "":
+        return;
+      case "all":
+        returnArray = images["albums/arts/collaboration/"].concat(
+          images["albums/arts/scraps/digital/"],
+          images["albums/arts/scraps/kid/"],
+          images["albums/arts/scraps/traditional/"],
+          images["albums/arts/showcase/analogue/"],
+          images["albums/arts/showcase/digital/"],
+          images["albums/photography/animalia/arthropoda/arachnida/"],
+          images["albums/photography/animalia/arthropoda/insecta/"],
+          images["albums/photography/animalia/arthropoda/miscellarthropoda/"],
+          images["albums/photography/animalia/aves/"],
+          images["albums/photography/animalia/mammalia/"],
+          images["albums/photography/animalia/miscellanimalia/"],
+          images["albums/photography/animalia/reptilia/"],
+          images["albums/photography/inanimalia/architecture/"],
+          images["albums/photography/inanimalia/objecta/"],
+          images["albums/photography/inanimalia/vista/"],
+          images["albums/sculpt/"]
+        );
+        return returnArray;
+      case "art":
+        returnArray = images["albums/arts/collaboration/"].concat(
+          images["albums/arts/scraps/digital/"],
+          images["albums/arts/scraps/kid/"],
+          images["albums/arts/scraps/traditional/"],
+          images["albums/arts/showcase/analogue/"],
+          images["albums/arts/showcase/digital/"]
+        );
+        return returnArray;
+      case "collaboration":
+        return images["albums/arts/collaboration/"];
+      case "scraps":
+        returnArray = images["albums/arts/scraps/digital/"].concat(
+          images["albums/arts/scraps/kid/"],
+          images["albums/arts/scraps/traditional/"]
+        );
+        return returnArray;
+      case "digitalScraps":
+        return images["albums/arts/scraps/digital/"];
+      case "kid":
+        return images["albums/arts/scraps/kid/"];
+      case "traditional":
+        return images["albums/arts/scraps/traditional/"];
+      case "showcase":
+        returnArray = images["albums/arts/showcase/analogue/"].concat(
+          images["albums/arts/showcase/digital/"]
+        );
+        return returnArray;
+      case "analogue":
+        return images["albums/arts/showcase/analogue/"];
+      case "digitalShowcase":
+        return images["albums/arts/showcase/digital/"];
+      case "photography":
+        returnArray = images[
+          "albums/photography/animalia/arthropoda/arachnida/"
+        ].concat(
+          images["albums/photography/animalia/arthropoda/insecta/"],
+          images["albums/photography/animalia/arthropoda/miscellarthropoda/"],
+          images["albums/photography/animalia/aves/"],
+          images["albums/photography/animalia/mammalia/"],
+          images["albums/photography/animalia/miscellanimalia/"],
+          images["albums/photography/animalia/reptilia/"],
+          images["albums/photography/inanimalia/architecture/"],
+          images["albums/photography/inanimalia/objecta/"],
+          images["albums/photography/inanimalia/vista/"]
+        );
+        return returnArray;
+      case "animalia":
+        returnArray = images[
+          "albums/photography/animalia/arthropoda/arachnida/"
+        ].concat(
+          images["albums/photography/animalia/arthropoda/insecta/"],
+          images["albums/photography/animalia/arthropoda/miscellarthropoda/"],
+          images["albums/photography/animalia/aves/"],
+          images["albums/photography/animalia/mammalia/"],
+          images["albums/photography/animalia/miscellanimalia/"],
+          images["albums/photography/animalia/reptilia/"]
+        );
+        return returnArray;
+      case "arthropoda":
+        returnArray = images[
+          "albums/photography/animalia/arthropoda/arachnida/"
+        ].concat(
+          images["albums/photography/animalia/arthropoda/insecta/"],
+          images["albums/photography/animalia/arthropoda/miscellarthropoda/"]
+        );
+        return returnArray;
+      case "arachnida":
+        return images["albums/photography/animalia/arthropoda/arachnida/"];
+      case "insecta":
+        return images["albums/photography/animalia/arthropoda/insecta/"];
+      case "miscellarthropoda":
+        return images[
+          "albums/photography/animalia/arthropoda/miscellarthropoda/"
+        ];
+      case "aves":
+        return images["albums/photography/animalia/aves/"];
+      case "mammalia":
+        return images["albums/photography/animalia/mammalia/"];
+      case "miscellanimalia":
+        return images["albums/photography/animalia/miscellanimalia/"];
+      case "reptilia":
+        return images["albums/photography/animalia/reptilia/"];
+      case "inanimalia":
+        returnArray = images[
+          "albums/photography/inanimalia/architecture/"
+        ].concat(
+          images["albums/photography/inanimalia/objecta/"],
+          images["albums/photography/inanimalia/vista/"]
+        );
+        return returnArray;
+      case "architecture":
+        return images["albums/photography/inanimalia/architecture/"];
+      case "objecta":
+        return images["albums/photography/inanimalia/objecta/"];
+      case "vista":
+        return images["albums/photography/inanimalia/vista/"];
+      case "sculpt":
+        return images["albums/sculpt/"];
+    }
+  }
 
   //Make mouse scroll left and right
-  //item = document.getElementById("galleryContainer");
+  // const item = document.getElementById("galleryContainer");
 
   // window.addEventListener("wheel", function (e) {
   //   if (e.deltaY > 0) item.scrollLeft += 200;
@@ -77,25 +212,17 @@ function GalleryReact() {
           src: "images/hotherym-small.png",
           height: "59",
           width: "273",
-        }),
-        React.createElement(NavBar, null)
+        })
       ),
-      "hi"
-    )
+      React.createElement(NavBar, { setSelection })
+    ),
+    React.createElement(
+      "div",
+      { id: "galleryContainer" },
+      getCorrectImages(selection)
+    ),
+    React.createElement(Footer)
   );
-  // <>
-  //   {console.log(test)}
-  //   <div id="hotherym3">
-  //     <a href="main.html">
-  //       <img src="images/hotherym-small.png" height="59" width="273" />
-  //     </a>
-  //   </div>
-  //   <div id="galleryContainer">
-  //     <a></a>
-  //   </div>
-
-  //   <Footer />
-  // </>
 }
 const domContainer = document.querySelector("#galleryReact");
 const root = ReactDOM.createRoot(domContainer);
