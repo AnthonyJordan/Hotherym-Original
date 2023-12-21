@@ -28,11 +28,14 @@ function GalleryReact() {
   ];
 
   const [images, setImages] = React.useState({});
+
+  //initial image load
   React.useEffect(() => {
     var promiseArr = [];
 
     folders.forEach((folder) => {
       var imageName = "";
+      var description = "";
       images[folder] = new Array();
       var promise = new Promise(function (resolve, reject) {
         $.ajax({
@@ -42,19 +45,27 @@ function GalleryReact() {
               .find("a")
               .attr("href", function (i, val) {
                 if (val.match(/\.(jpe?g|png|gif)$/)) {
-                  (imageName = val.split("/")),
-                    (imageName = imageName.pop().split("."));
-                  (imageName = imageName[0]),
-                    images[folder].push(
-                      React.createElement(
-                        "div",
-                        { id: "galleryImageDiv" },
-                        React.createElement("img", {
-                          id: "galleryImage",
-                          src: val,
-                        })
-                      )
-                    );
+                  //get descrption
+                  imageName = val.split("/");
+                  imageName = imageName.pop().split(".");
+                  imageName = imageName[0];
+                  if (descriptionConfig[imageName]) {
+                    description = descriptionConfig[imageName];
+                  } else {
+                    description = "";
+                  }
+                  //create image element
+                  images[folder].push(
+                    React.createElement(
+                      "div",
+                      { id: "galleryImageDiv" },
+                      React.createElement("img", {
+                        id: "galleryImage",
+                        src: val,
+                        description: description,
+                      })
+                    )
+                  );
                 }
               });
             resolve();
@@ -66,11 +77,13 @@ function GalleryReact() {
       });
       promiseArr.push(promise);
     });
+    //sets selection after all AJAX calls are finished
     Promise.all(promiseArr).then(() => {
       setSelection("all");
     });
   }, []);
 
+  //sets images based on selection
   function getCorrectImages(selection) {
     let returnArray = [];
     switch (selection) {
