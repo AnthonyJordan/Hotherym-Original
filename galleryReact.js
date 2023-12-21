@@ -218,12 +218,12 @@ function GalleryReact() {
   }
 
   //Make mouse scroll left and right
-  // const item = document.getElementById("galleryContainer");
+  const item = document.getElementById("galleryContainer");
 
-  // window.addEventListener("wheel", function (e) {
-  //   if (e.deltaY > 0) item.scrollLeft += 200;
-  //   else item.scrollLeft -= 200;
-  // });
+  window.addEventListener("wheel", function (e) {
+    if (e.deltaY > 0) item.scrollLeft += 200;
+    else item.scrollLeft -= 200;
+  });
 
   let ImageModalHolder = modalOpen
     ? React.createElement(ImageModal, {
