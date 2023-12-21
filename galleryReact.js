@@ -1,12 +1,15 @@
 import Footer from "./Footer.js";
 import descriptionConfig from "./description-config.json" assert { type: "json" };
 import NavBar from "./NavBar.js";
+import ImageModal from "./ImageModal.js";
 ("use strict");
-
-const e = React.createElement;
 
 function GalleryReact() {
   const [selection, setSelection] = React.useState("");
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [imageSelection, setImageSelection] = React.useState("");
+  const [images, setImages] = React.useState({});
+
   const folders = [
     "albums/arts/collaboration/",
     "albums/arts/scraps/digital/",
@@ -27,7 +30,10 @@ function GalleryReact() {
     "albums/sculpt/",
   ];
 
-  const [images, setImages] = React.useState({});
+  function onImageClick(image, description) {
+    setImageSelection({ image: image, description: description });
+    setModalOpen(true);
+  }
 
   //initial image load
   React.useEffect(() => {
@@ -35,7 +41,6 @@ function GalleryReact() {
 
     folders.forEach((folder) => {
       var imageName = "";
-      var description = "";
       images[folder] = new Array();
       var promise = new Promise(function (resolve, reject) {
         $.ajax({
@@ -43,7 +48,7 @@ function GalleryReact() {
           success: function (data) {
             $(data)
               .find("a")
-              .attr("href", function (i, val) {
+              .attr("href", function (i, val, description) {
                 if (val.match(/\.(jpe?g|png|gif)$/)) {
                   //get descrption
                   imageName = val.split("/");
@@ -62,7 +67,8 @@ function GalleryReact() {
                       React.createElement("img", {
                         id: "galleryImage",
                         src: val,
-                        description: description,
+                        key: val,
+                        onClick: () => onImageClick(val, description),
                       })
                     )
                   );
@@ -212,12 +218,20 @@ function GalleryReact() {
   }
 
   //Make mouse scroll left and right
-  const item = document.getElementById("galleryContainer");
+  // const item = document.getElementById("galleryContainer");
 
-  window.addEventListener("wheel", function (e) {
-    if (e.deltaY > 0) item.scrollLeft += 200;
-    else item.scrollLeft -= 200;
-  });
+  // window.addEventListener("wheel", function (e) {
+  //   if (e.deltaY > 0) item.scrollLeft += 200;
+  //   else item.scrollLeft -= 200;
+  // });
+
+  let ImageModalHolder = modalOpen
+    ? React.createElement(ImageModal, {
+        description: imageSelection.description,
+        src: imageSelection.image,
+        closeModal: () => setModalOpen(false),
+      })
+    : null;
 
   return React.createElement(
     React.Fragment,
@@ -241,9 +255,10 @@ function GalleryReact() {
       { id: "galleryContainer" },
       getCorrectImages(selection)
     ),
-    React.createElement(Footer)
+    React.createElement(Footer),
+    ImageModalHolder
   );
 }
 const domContainer = document.querySelector("#galleryReact");
 const root = ReactDOM.createRoot(domContainer);
-root.render(e(GalleryReact));
+root.render(React.createElement(GalleryReact));
