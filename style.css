@@ -7,7 +7,10 @@ orange: #F6AF49;
 */
 
 /* General properties */
-
+#HTML {
+  scrollbar-color: red orange;
+  scrollbar-width: thin;
+}
 body {
   text-align: left;
   font-family: century gothic, arial;
@@ -17,8 +20,18 @@ body {
 
   color: #f6af49;
   background: black;
-
+  scrollbar-color: red orange;
+  scrollbar-width: thin;
   overflow: hidden;
+}
+#HTML::-webkit-scrollbar {
+  height: 1em;
+}
+#HTML::-webkit-scrollbar-track {
+  background: rgb(155, 33, 33);
+}
+#HTML::-webkit-scrollbar-thumb {
+  background: black;
 }
 
 a {
@@ -84,7 +97,8 @@ input {
   border-left: 3px black dotted;
   border-bottom: 3px black dotted;
 
-  background: url(images/texture-bg.jpg) repeat-y right;
+  background: url(images/texture-bg.jpg) repeat-y center;
+  background-size: 80%;
   z-index: 2;
 
   filter: alpha(opacity=85);
@@ -266,7 +280,7 @@ hr {
 
 #ultravisitor {
   position: fixed;
-  top: 330px;
+  top: 380px;
   left: 40px;
 
   height: 495px;
@@ -277,7 +291,7 @@ hr {
 
 #drii-fore {
   position: fixed;
-  top: 353px;
+  top: 403px;
   left: 157px;
 
   height: 142px;
@@ -288,7 +302,7 @@ hr {
 
 #drii-back {
   position: fixed;
-  top: 340px;
+  top: 390px;
   left: 20px;
 
   height: 435px;
@@ -384,7 +398,7 @@ hr {
 
 #blackbox {
   position: fixed;
-  top: 785px;
+  top: 835px;
   margin: -10px;
   width: 110%;
   padding: 20px;
