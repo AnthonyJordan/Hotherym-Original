@@ -8,7 +8,7 @@ orange: #F6AF49;
 
 /* General properties */
 #HTML {
-  scrollbar-color: red orange;
+  scrollbar-color: black red;
   scrollbar-width: thin;
 }
 body {
@@ -20,8 +20,6 @@ body {
 
   color: #f6af49;
   background: black;
-  scrollbar-color: red orange;
-  scrollbar-width: thin;
   overflow: hidden;
 }
 #HTML::-webkit-scrollbar {
@@ -31,6 +29,25 @@ body {
   background: rgb(155, 33, 33);
 }
 #HTML::-webkit-scrollbar-thumb {
+  background: black;
+}
+.about-textbox::-webkit-scrollbar {
+  height: 1em;
+}
+.about-textbox::-webkit-scrollbar-track {
+  background: rgb(155, 33, 33);
+}
+.about-textbox::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+#galleryContainer::-webkit-scrollbar {
+  height: 1em;
+}
+#galleryContainer::-webkit-scrollbar-track {
+  background: rgb(155, 33, 33);
+}
+#galleryContainer::-webkit-scrollbar-thumb {
   background: black;
 }
 
@@ -691,31 +708,23 @@ hr {
   position: absolute;
 }
 .modalImage {
-  max-width: 1200px;
-  max-height: 800px;
-  border-style: solid;
-  border-color: black;
+  max-width: 1800px;
+  max-height: 850px;
 }
 
 .modalContainer {
   display: flex;
   flex-direction: column;
-  background-color: rgba(150, 54, 113, 0.7);
-  border-radius: 25px;
-  padding: 10px;
-  border-style: solid;
-  border-color: black;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.modalClose {
-  text-align: right;
-  padding-bottom: 3px;
-}
-
 .pointer {
   cursor: pointer;
+}
+
+.modalDesc {
+  text-align: center;
 }
 
 .modalBackground {

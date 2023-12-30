@@ -111,6 +111,15 @@ window.addEventListener("wheel", function (e) {
   if (e.deltaY > 0) item.scrollLeft += 200;
   else item.scrollLeft -= 200;
 });
+
+document.getElementById("about-who").addEventListener("wheel", function (e) {
+  if (e.deltaY > 0) item.scrollLeft -= 200;
+  else item.scrollLeft += 200;
+});
+document.getElementById("about-what").addEventListener("wheel", function (e) {
+  if (e.deltaY > 0) item.scrollLeft -= 200;
+  else item.scrollLeft += 200;
+});
 </script>
 </html>
 

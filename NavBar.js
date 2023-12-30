@@ -210,7 +210,7 @@ function NavBar({ setSelection }) {
             {
               className: "home-link21",
               id: "Sculptures",
-              onClick: () => setSelection("sculptures"),
+              onClick: () => setSelection("sculpt"),
             },
             "Sculptures"
           ),

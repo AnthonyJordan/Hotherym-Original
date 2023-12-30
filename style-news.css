@@ -5,40 +5,58 @@ rich blue: #3734B9;
 orange: #F6AF49;
 
 */
+HTML {
+  scrollbar-color: black red;
+  scrollbar-width: thin;
+}
 
-body
-{
+body {
   text-align: left;
   font-family: century gothic, arial;
   font-size: 9pt;
 
   margin: 5px 0px 5px 5px;
 
-  color: #62D9EE;
+  color: #62d9ee;
 
   overflow: auto;
 
   background: none;
 }
+body::-webkit-scrollbar {
+  height: 1em;
+}
+body::-webkit-scrollbar-track {
+  background: rgb(155, 33, 33);
+}
+body::-webkit-scrollbar-thumb {
+  background: black;
+}
 
-a       { text-decoration: underline; color:#F6AF49; }
-a:hover { text-decoration: none; color:#F6AF49; }
+a {
+  text-decoration: underline;
+  color: #f6af49;
+}
+a:hover {
+  text-decoration: none;
+  color: #f6af49;
+}
 
-img { border: none; }
+img {
+  border: none;
+}
 
-hr
-{
+hr {
   border: 0;
-  color: #3734B9;
-  background-color: #3734B9;
+  color: #3734b9;
+  background-color: #3734b9;
   width: 80%;
   height: 1px;
   text-align: center;
 }
 
-.date
-{
+.date {
   font-size: 10pt;
   font-weight: bold;
-  color: #F6AF49;
+  color: #f6af49;
 }
